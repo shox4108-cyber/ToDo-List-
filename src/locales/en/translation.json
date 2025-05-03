@@ -1,0 +1,18 @@
+{
+    "notesText": "Notes",
+    "allNotes" : "All Notes",
+    "list" : "List",
+    "grid" : "Grid",
+    "search": "Search...",
+    "add" : "Add",
+    "cancel" : "Cancel",
+    "edit" : "Edit",
+    "delete" : "Delete",
+    "addNote" : "Add Note",
+    "editNote" : "Edit Note",
+    "title" : "Title",
+    "text" : "Text",
+    "edited": "Edited",
+    "confirm": "Confirm",
+    "sure" : "Are you sure you want to delete"
+}
