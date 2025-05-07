@@ -7,6 +7,7 @@ import { NotesContext } from "./context";
 import gsap from "gsap";
 import { toast } from "react-toastify";
 import useGsapFadeIn from "./animation/useGsapFadeIn";
+import { useTranslation } from "react-i18next";
 
 function App() {
   const getLs = () =>
@@ -19,7 +20,7 @@ function App() {
   const [notes, setNotes] = useState(getLs);
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
-
+  const {t} = useTranslation()
 
   const notesBySearch = notes.filter((note) =>
     note.title.toLowerCase().includes(search.toLowerCase())
@@ -60,7 +61,7 @@ function App() {
       const updatedNotes = notes.map((item) => {
         if (item.id == note.id) {
           if (item.title !== note.title || item.text !== note.text) {
-            toast.success(`Note ${note.title} edited`, {
+            toast.success(`${t("note")} ${note.title} ${t("editED")}`, {
               position: "top-right",
               autoClose: 1000,
             });
@@ -68,7 +69,7 @@ function App() {
             console.log("note", note.title);
             return note;
           } else {
-            toast.error(`Note ${item.title} was not changed by you`, {
+            toast.error(`${t("note")} ${item.title} ${t("notChangED")}`, {
               position: "top-right",
               autoClose: 1000,
             });
@@ -86,7 +87,7 @@ function App() {
     if (confirmation) {
       setNotes(notes.filter((item) => item.id != id));
       closeModalHandler();
-      toast.success(`Note "${note.title}" deleted`, {
+      toast.success(`${t("note")} "${note.title}" ${t("deletED")}`, {
         position: "top-right",
         autoClose: 1000,
       });

@@ -23,13 +23,13 @@ const Model = ({appearRef}) => {
       addOrChangeHandler(note);
       closeModalHandler();
       !currentNote
-        ? toast.success(`Note ${title} added`, {
+        ? toast.success(`${t("note")} ${title} ${t("addED")}`, {
             position: "top-right",
             autoClose: 1000,
           })
         : "";
     } else {
-      toast.warning(`Need 3 symbols at least`, {
+      toast.warning(`${t("warning")}`, {
         position: "top-right",
         autoClose: 1000,
       });

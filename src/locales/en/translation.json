@@ -14,5 +14,13 @@
     "text" : "Text",
     "edited": "Edited",
     "confirm": "Confirm",
-    "sure" : "Are you sure you want to delete"
+    "sure" : "Are you sure you want to delete",
+    "warning" : "Need 3 symbols at least",
+    "note" : "Note",
+    "addED" : "added",
+    "deletED" : "deleted",
+    "editED": "edited",
+    "notChangED": "was not changed",
+    "Error": "Your screen width is too short!"
+
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import listIcon from "../assets/images/list.svg";
 import gridIcon from "../assets/images/grid.svg";
 import NotesItem from "./NotesItem";
@@ -12,6 +12,7 @@ const Notes = ({ notes }) => {
   let icon = view ? listIcon : gridIcon;
   let spanText = view ? t("list") : t("grid");
   let notesListClass = `notes__list ${!view ? "active" : ""}`;
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const titleRef = useGsapFadeIn(
     { opacity: 0, y: -20 },
@@ -22,6 +23,18 @@ const Notes = ({ notes }) => {
     { opacity: 0, scale: 10 },
     { opacity: 1, scale: 1, duration: 1, delay: 4, ease: "expo.in" }
   );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 700);
+      setView(false)
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   
 
@@ -35,7 +48,7 @@ const Notes = ({ notes }) => {
             </h2>
             <button
               className="notes__top-btn"
-              onClick={() => setView(!view)}
+              onClick={() => isSmallScreen? alert(t('Error')) : setView(!view)}
             >
               <img src={icon} alt="listIcon" />
               <span>{spanText}</span>

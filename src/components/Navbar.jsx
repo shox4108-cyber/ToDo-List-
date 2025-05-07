@@ -70,6 +70,7 @@ const Navbar = ({ search, setSearch }) => {
               <img
                 src={searchIcon}
                 alt="searchIcon"
+                className="nav__search"
                 onClick={() => {
                   gsap.to(appearRef.current, {
                     opacity: 0,
